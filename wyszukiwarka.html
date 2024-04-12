@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="warDROBE">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Krzysztof Skorupski">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <title>Garderoba</title>
+  <link rel="stylesheet" href="styles/searchstyles.css">
+</head>
+<body>
+  <nav>
+    <a href="login.html">Login | Rejestracja</a>
+    <a href="main.html">Strona główna</a>
+    <a href="wyszukiwarka.html">Ubrania | Buty</a>
+    <a href="contact.html">Kontakt | Nasze sklepy</a>
+  </nav>
+
+  <h1>Aktualna oferta</h1>
+
+  <div class="btform">
+    <form id="searchForm" method="GET">
+      <input style="color: #000000;" type="text" id="searchInput" placeholder="Szukaj po marce, rodzaju lub kolorze">
+      <button type="submit">Szukaj</button>
+      <button type="submit">Wyświetl wszystkie ubrania</button>
+    </form>
+    <div class="buttons">
+      <button class="bt" onclick="searchByType('T-Shirt')">T-Shirt</button>
+      <button class="bt" onclick="searchByType('Bluza')">Bluzy</button>
+      <button class="bt" onclick="searchByType('Buty')">Buty</button>
+      <button class="bt" onclick="searchByType('Spodnie')">Spodnie</button>
+    </div>
+  </div>
+  <div id="clothesList" class="clothes-container"></div>
+  <script>
+    document.getElementById('searchForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const searchInput = document.getElementById('searchInput').value;
+
+      fetch(`proxy.php?search=${searchInput}`)
+        .then(response => response.json())
+        .then(data => {
+          showClothes(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    });
+
+    function showClothes(clothes) {
+  const clothesList = document.getElementById('clothesList');
+  clothesList.innerHTML = '';
+  const cssStyles = `
+    .clothes-box {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      width: 220px;
+    }
+
+    .clothes-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 10px auto;
+    }
+  `;
+  const styleElement = document.createElement('style');
+  styleElement.textContent = cssStyles;
+  document.head.appendChild(styleElement);
+
+  clothes.forEach((clothes, index) => {
+    const clothesDiv = document.createElement('div');
+    clothesDiv.classList.add('clothes-box');
+    clothesDiv.innerHTML = `
+      <p><strong>Marka:</strong> ${clothes.brand}</p>
+      <p><strong>Typ:</strong> ${clothes.type}</p>
+      <p><strong>Kolor:</strong> ${clothes.color}</p>
+      <p><strong>Nasza cena:</strong> ${clothes.price} &euro;</p>
+    `;
+    clothesList.appendChild(clothesDiv);
+  });
+}
+
+function searchByType(type) {
+      fetch(`proxy.php?search=${type}`)
+        .then(response => response.json())
+        .then(data => {
+          showClothes(data);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+    }
+
+
+  </script>
+</body>
+
+</html>

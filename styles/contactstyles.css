@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+body {
+  margin: 0 0 0 0;
+  text-align: center;
+  background-image: url("bg2.webp");
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  gap: 30px;
+  background: white;
+}
+
+a {
+  padding: 1rem 2rem 1.15rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: black;
+  min-width: 80px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: grey;
+  background-size: 100% 100%;
+  color: #27262c;
+  animation: spring 300ms ease-out;
+  text-shadow: 0 -1px 0 #8c8c8c;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+a:active {
+  transform: translateY(4px);
+}
+
+@keyframes spring {
+  75% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: scale(0.95, 1);
+  }
+  100% {
+    -webkit-transform-origin: center center;
+    -webkit-transform: scale(1, 1);
+  }
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 13px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background: #f2f2f2;
+}
+
+input[type="submit"] {
+  width: 100%;
+  background-color: rgb(223, 172, 172);
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #303030;
+}
+
+.formularz {
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+  padding-top: 10px;
+}
+
+.form{
+  max-width: 500px;
+}
+
+.mapy {
+  border-radius: 5px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.razem {
+  margin-top: 20px;
+}
+
+.footer {
+  margin: auto;
+  width: auto;
+  position: relative;
+  min-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+}
+
+.footer p {
+  color: black;
+  font-size: 15px;
+  font-weight: 300;
+}

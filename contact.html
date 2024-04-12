@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="warDROBE">
+  <meta name="keywords" content="HTML, CSS, JavaScript">
+  <meta name="author" content="Krzysztof Skorupski">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <title>Znajdź nas!</title>
+  <link rel="stylesheet" href="styles/contactstyles.css">
+</head>
+
+<body>
+  <nav>
+    <a href="login.html">Login | Rejestracja</a>
+    <a href="main.html">Strona główna</a>
+    <a href="wyszukiwarka.html">Ubrania | Buty</a>
+    <a href="contact.html">Kontakt | Nasze sklepy</a>
+  </nav>
+  <div class="razem">
+    <p style="color: white; font-size: larger; font-weight: bolder;">FORMULARZ KONTAKTOWY</p>
+    <div class="formularz">
+      <form method="POST" name="contact_form" class="form" action="form.php">
+        <label for="fname">Imie</label>
+        <input type="text" id="fname" name="firstname" placeholder="Wpisz imie">
+        <label for="lname">Nazwisko</label>
+        <input type="text" id="lname" name="lastname" placeholder="Wpisz nazwisko">
+        <label for="tel">Numer Telefonu</label>
+        <input type="text" id="tel" name="tel" placeholder="Wpisz nr telefonu">
+        <label for="mes">Wiadomość</label>
+        <input type="text" id="mes" name="mes" placeholder="napisz wiadomość">
+        <input type="submit" value="Wyślij">
+      </form>
+    </div>
+    <div class="mapy">
+      <p style="color: black; font-size: larger;">Nasze sklepy stacjonarne</p>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d179.37965274649872!2d21.0185122!3d52.2306726!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eccf38883a3ab%3A0x65a7ccee0bcfffff!2sDH%20Vitkac!5e1!3m2!1spl!2spl!4v1712846481208!5m2!1spl!2spl" width="100%" height="400px" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+  <footer class="footer">
+    <p>&copy;2024 Krzysztof Skorupski | All Rights Reserved</p>
+  </footer>
+</body>
+
+</html>
